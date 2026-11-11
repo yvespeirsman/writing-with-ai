@@ -6,9 +6,12 @@ Generate stories via OpenRouter, extract character names with an LLM, and visual
 
 - Python 3
 - `OPENROUTER_API_KEY` environment variable set
-- Optional: activate the local venv for `visualize_characters.py`:
+- Optional: create and activate a virtual environment in the project root:
   ```bash
+  cd ..
+  python3 -m venv venv
   source venv/bin/activate
+  pip install matplotlib
   ```
 
 ## Scripts
@@ -46,7 +49,10 @@ python3 extract_characters.py stories/en/openai_gpt-6-luna
 
 ### 3. Visualize
 
+Requires matplotlib in the root-level venv.
+
 ```bash
+source ../venv/bin/activate
 python3 visualize_characters.py <base_directory> [top_n]
 ```
 
@@ -54,6 +60,7 @@ Reads all `characters.csv` files under the given directory, counts names per mod
 
 Example:
 ```bash
+source ../venv/bin/activate
 python3 visualize_characters.py stories 10
 ```
 
